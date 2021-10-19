@@ -152,7 +152,6 @@ public class DacDemo {
       }
 
       performCommand(user, demo, inputs);
-
       running = true;
 
     } while (running);
@@ -177,22 +176,22 @@ public class DacDemo {
 
   public boolean hasRight(User user, String right, String object) {
 
-    boolean has = false;
+    boolean hasRights = false;
     loopi:
     for (int i = 0; i < 6; i++) {
       for (int j = 1; j < 4; j++) {
         if (user.accessRights[i][0] != null && user.accessRights[i][j] != null) {
           if (user.accessRights[i][0].equals(object)
               && user.accessRights[i][j].equals(right)) {
-            has = true;
+            hasRights = true;
             break loopi;
           } else {
-            has = false;
+            hasRights = false;
           }
         }
       }
     }
-    return has;
+    return hasRights;
   }
 
   public void updateRights(User user, String right, String object) {
@@ -215,23 +214,14 @@ public class DacDemo {
   public static void main(String[] args) {
 
     System.out.println("Система контроля доступа.");
-
     DacDemo demo = new DacDemo();
-
     Scanner sc = new Scanner(System.in);
 
     do {
-
       User user = demo.identify(sc, demo);
-
       System.out.println(demo.getUserRights(user, demo));
-
       System.out.println("***");
-
       demo.runCommand(sc, demo, user);
-
     } while (true);
-
-    //sc.close();
   }
 }

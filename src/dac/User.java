@@ -1,13 +1,10 @@
 package dac;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class User {
 
   public String name; // Используется в качестве идентификатора
-
   public String[][] accessRights; // Список прав пользователя
 
   public User(String name) {
